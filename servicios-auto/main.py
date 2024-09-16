@@ -23,7 +23,7 @@ def download_excel_with_selenium(email, password):
     # Configuración de Microsoft Edge en modo headless (sin interfaz gráfica)
     options = webdriver.EdgeOptions()
     # options.add_argument('--headless')  # Si quieres que sea sin interfaz gráfica
-    options.add_argument('--disable-gpu')  # Recomendado para el modo headless
+    options.add_argument('--disable-gpu')
     options.add_argument('--no-sandbox')
 
     # Iniciar Edge

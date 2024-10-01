@@ -74,7 +74,7 @@ def download_excel_with_selenium(email, password):
 
         # Seleccionar la opción "Proyecto" del selector
         project_selector = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.ID, 'ContenidoPrincipal_ContenidoServicios_ddlProyecto'))
+            EC.presence_of_element_located((By.XPATH, '//span[@id="ContenidoPrincipal_ContenidoServicios_Label36"]/following-sibling::select[1]'))
         )
         project_selector.click()
 
@@ -88,6 +88,7 @@ def download_excel_with_selenium(email, password):
             EC.element_to_be_clickable((By.ID, 'ContenidoPrincipal_ContenidoServicios_bBuscar'))
         )
         buscar_button.click()
+        time.sleep(10)
         # Pulsar el botón para imprimir/exportar
         print_button = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.ID, 'ContenidoPrincipal_ContenidoServicios_bImprimir'))
@@ -178,7 +179,6 @@ def download_excel_with_selenium(email, password):
                 print("No se encontraron datos en la tabla.")
         else:
             print("No se encontró ninguna tabla en la página.")
-
 
     finally:
         driver.quit()
